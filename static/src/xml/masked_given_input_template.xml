@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="owl.StarField" owl="1">
+        <div class="o_star_field">
+            <!-- Düzenleme modunda mı? -->
+            <t t-if="state.isEditing">
+                <!-- Kullanıcıdan giriş alınan alan -->
+                <input
+                    type="text"
+                    t-on-blur="stopEditing"
+                    t-on-input="onInput"
+                    t-att-value="props.value"
+                />
+            </t>
+            <t t-else="">
+                <!-- Maskeli görünüm -->
+                <span
+                    t-on-click="startEditing"
+                    t-esc="state.maskedValue"
+                />
+            </t>
+        </div>
+    </t>
+</templates>
